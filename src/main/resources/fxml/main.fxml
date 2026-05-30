@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.srms.Controller"
+      spacing="10"
+      prefWidth="700"
+      prefHeight="500">
+
+    <padding><Insets top="15" bottom="15" left="15" right="15"/></padding>
+
+    <Label text="Student Record Management System"
+           style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+
+    <Separator/>
+
+    <!-- Input Fields Row -->
+    <HBox spacing="10" alignment="CENTER_LEFT">
+
+        <Label text="Name:"/>
+        <TextField fx:id="txtName" promptText="Enter name" prefWidth="150"/>
+
+        <Label text="Course:"/>
+        <TextField fx:id="txtCourse" promptText="Enter course" prefWidth="120"/>
+
+        <Label text="Year Level:"/>
+        <ChoiceBox fx:id="cbYear" prefWidth="100"/>
+
+    </HBox>
+
+    <!-- Buttons Row -->
+    <HBox spacing="8">
+        <Button text="Add"    onAction="#addStudent"/>
+        <Button text="Update" onAction="#updateStudent"/>
+        <Button text="Delete" onAction="#deleteStudent"/>
+        <Button text="Clear"  onAction="#clearFields"/>
+    </HBox>
+
+    <!-- Status -->
+    <Label fx:id="lblStatus" text=""/>
+
+    <Separator/>
+
+    <!-- TableView -->
+    <TableView fx:id="table" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="colId"     text="ID"         prefWidth="60"/>
+            <TableColumn fx:id="colName"   text="Name"       prefWidth="200"/>
+            <TableColumn fx:id="colCourse" text="Course"     prefWidth="150"/>
+            <TableColumn fx:id="colYear"   text="Year Level" prefWidth="120"/>
+        </columns>
+        <placeholder>
+            <Label text="No records found."/>
+        </placeholder>
+    </TableView>
+
+</VBox>
